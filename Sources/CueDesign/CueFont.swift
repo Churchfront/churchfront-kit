@@ -9,11 +9,30 @@ public enum CueFont {
     @discardableResult
     public static func register() -> Bool {
         if figtreeLoaded { return true }
-        guard let url = Bundle.module.url(forResource: "Figtree-VariableFont_wght", withExtension: "ttf") else { return false }
+        guard let url = figtreeURL() else { return false }
         var err: Unmanaged<CFError>?
         let ok = CTFontManagerRegisterFontsForURL(url as CFURL, .process, &err)
         figtreeLoaded = ok || CTFontCreateWithName("Figtree" as CFString, 12, nil).familyName == "Figtree"
         return figtreeLoaded
+    }
+
+    /// Finds the font without `Bundle.module`, which crashes when an app's build
+    /// script assembles the .app by hand and leaves CueKit's resource bundle out.
+    /// Looks in CueKit's bundle (inside the app, beside the binary, or in the
+    /// build folder), then in the app's own resources.
+    static func figtreeURL() -> URL? {
+        let name = "Figtree-VariableFont_wght", ext = "ttf", bundleName = "CueKit_CueDesign.bundle"
+        var places: [URL] = []
+        if let r = Bundle.main.resourceURL { places.append(r.appendingPathComponent(bundleName)) }
+        places.append(Bundle.main.bundleURL.appendingPathComponent(bundleName))
+        if let exe = Bundle.main.executableURL { places.append(exe.deletingLastPathComponent().appendingPathComponent(bundleName)) }
+        places.append(URL(fileURLWithPath: #filePath).deletingLastPathComponent().appendingPathComponent("Resources"))
+        for place in places {
+            if let b = Bundle(url: place), let url = b.url(forResource: name, withExtension: ext) { return url }
+            let direct = place.appendingPathComponent("\(name).\(ext)")
+            if FileManager.default.fileExists(atPath: direct.path) { return direct }
+        }
+        return Bundle.main.url(forResource: name, withExtension: ext)
     }
 }
 

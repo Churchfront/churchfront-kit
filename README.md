@@ -9,6 +9,18 @@ The code the Cue apps share. Fix it once here and every app gets it on its next 
 
 Planned, in order: `CueATEM` (switcher + PTZ, from CueVideo), `CueMIDI` and `CueOSC`, `CueConnector` (shared Claude connector plumbing), then `CueLink`, the one protocol every Cue app uses to find and follow the others.
 
+### CueCloud (later)
+
+One sign-in to the Churchfront portal (app.churchfront.com) shared by every Cue app on a Mac, tied to the church's account. The use cases aren't decided yet. The ones in view:
+
+- **Sign in once.** Every Cue app on the Mac uses the same portal session, kept in the Keychain.
+- **Licensing.** Which apps and tiers a church's plan includes (Stripe stays the record for payment).
+- **The church's system.** Venues, gear, patch sheets and schematics from the portal, so the apps know the room they run in.
+- **Sync and backup.** Shows, libraries, looks and themes, shared across a church's booth Macs and campuses.
+- **Support.** Logs and crash reports to the help desk, and remote help from Churchfront staff with the church's permission.
+
+Rules for when it's built: every Cue app must keep running a service with no internet. The cloud adds things but never stands between the operator and GO. The portal's Supabase row-level security decides what each church can see, same as on the web.
+
 ## Using it in an app
 
 ```swift
