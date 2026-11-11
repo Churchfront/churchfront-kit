@@ -11,7 +11,7 @@ import UIKit
 /// never blue-tinted, so operators judge slide, video and lighting colour
 /// truthfully. Colour is kept for meaning (accent, status, tally).
 /// Light values follow the Signal design system for apps that offer it.
-public enum CueColor {
+public enum SignalColor {
     /// Raw hex values, so non-SwiftUI code (Metal, CoreGraphics, web remotes) can share them.
     public struct Pair: Sendable, Equatable {
         public let dark: UInt32
@@ -127,7 +127,7 @@ public enum CueColor {
 }
 
 /// Spacing and corner radii on a 4 pt grid.
-public enum CueSpace {
+public enum SignalSpace {
     public static let s1: CGFloat = 4, s2: CGFloat = 8, s3: CGFloat = 12, s4: CGFloat = 16, s5: CGFloat = 20, s6: CGFloat = 24
     public static let rSM: CGFloat = 4, rMD: CGFloat = 6, rLG: CGFloat = 10
 }

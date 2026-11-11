@@ -26,7 +26,7 @@ Rules for when it's built: every Cue app must keep running a service with no int
 ```swift
 // Package.swift
 dependencies: [
-    .package(url: "https://github.com/Churchfront/CueKit.git", from: "0.1.0"),
+    .package(url: "https://github.com/Churchfront/CueKit.git", from: "0.2.0"),
 ],
 targets: [
     .executableTarget(name: "MyApp", dependencies: [
@@ -38,9 +38,9 @@ targets: [
 
 ```swift
 import CueDesign
-CueFont.register()                        // once at launch
-Text("Program").cuePanelLabel()
-view.background(CueColor.surface)
+SignalFont.register()                        // once at launch
+Text("Program").signalPanelLabel()
+view.background(SignalColor.surface)
 
 import CueNDI
 ndi_set_app_name("CueVideo")              // the name other NDI devices see
@@ -51,6 +51,7 @@ To try a CueKit change inside an app before it is released, point the app at you
 ## Rules
 
 - **Versions.** Every release is a tag (`0.1.0`, `0.2.0`). Apps pin `from:` a version and move up when they are ready. Breaking changes bump the minor version while we are below 1.0.
+- **Names.** Design types start with `Signal` (after the Churchfront Signal design system) so they never clash with app types like CueStack's `CueColor` cue tags.
 - **Nothing app-specific.** If only one app needs it, it stays in that app. Things move here once two apps need them.
 - **The dark ramp is neutral grey**, never blue-tinted. A test enforces it.
 - **Reviews.** Changes here reach every app, so Jake and Matt both review (see `CODEOWNERS`).
