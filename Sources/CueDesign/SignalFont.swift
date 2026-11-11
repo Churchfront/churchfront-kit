@@ -20,7 +20,7 @@ public enum SignalFont {
     /// script assembles the .app by hand and leaves CueKit's resource bundle out.
     /// Looks in CueKit's bundle (inside the app, beside the binary, or in the
     /// build folder), then in the app's own resources.
-    static func figtreeURL() -> URL? {
+    public static func figtreeURL() -> URL? {
         let name = "Figtree-VariableFont_wght", ext = "ttf", bundleName = "CueKit_CueDesign.bundle"
         var places: [URL] = []
         if let r = Bundle.main.resourceURL { places.append(r.appendingPathComponent(bundleName)) }
