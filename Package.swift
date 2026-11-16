@@ -1,8 +1,8 @@
 // swift-tools-version:5.9
 import PackageDescription
 
-// CueKit: the code the Cue apps share (CueScreens, CueStack, CueTracks,
-// CueLights, CueVideo, CueCharts). Each app pins a tagged version.
+// Churchfront Kit (formerly CueKit): the code the Churchfront App Suite shares.
+// The package name stays CueKit so existing apps keep resolving it. Apache 2.0.
 let package = Package(
     name: "CueKit",
     platforms: [.macOS(.v14), .iOS(.v17)],

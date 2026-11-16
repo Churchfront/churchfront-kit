@@ -1,0 +1,12 @@
+Churchfront Kit
+Copyright 2026 Churchfront LLC
+
+This product includes the Figtree typeface, Copyright 2022 The Figtree Project
+Authors, licensed under the SIL Open Font License 1.1
+(Sources/CueDesign/Resources/OFL.txt).
+
+NDI is a registered trademark of Vizrt NDI AB. The NDI runtime is not included;
+CueNDI loads it at run time when it is installed.
+
+"Churchfront" is a registered trademark of Churchfront LLC. The Apache 2.0
+license does not grant permission to use it (section 6).
