@@ -1,11 +1,11 @@
-# CueKit
+# Churchfront Kit
 
-The code the Cue apps share. Fix it once here and every app gets it on its next update.
+The code the Churchfront App Suite shares (formerly CueKit; the Swift package and module names `CueKit`, `CueDesign` and `CueNDI` are unchanged so existing apps keep building). Fix it once here and every app gets it on its next update.
 
 | Module | What it holds | Replaces |
 |---|---|---|
-| `CueDesign` | Signal colours (the neutral grey ramp), spacing, Figtree, panel labels, button press style | `Theme.swift` in CueStack, CueTracks, CueVideo |
-| `CueNDI` | NDI in and out, loading the runtime at run time (no SDK needed to build) | `NDIBridge` in CueScreens and CueVideo |
+| `CueDesign` | Signal colours (the neutral grey ramp), spacing, Figtree, panel labels, button press style | `Theme.swift` in Churchfront Cues, Tracks and Video |
+| `CueNDI` | NDI in and out, loading the runtime at run time (no SDK needed to build) | `NDIBridge` in Churchfront Screens and Churchfront Video |
 
 Planned, in order: `CueATEM` (switcher + PTZ, from CueVideo), `CueMIDI` and `CueOSC`, `CueConnector` (shared Claude connector plumbing), then `CueLink`, the one protocol every Cue app uses to find and follow the others.
 
@@ -62,3 +62,7 @@ To try a CueKit change inside an app before it is released, point the app at you
 NDI is a registered trademark of Vizrt NDI AB. CueKit ships no NDI runtime: it loads one from NDI Tools or the NDI SDK. Set `CUE_NDI_BORROW=1` on a developer Mac to use ProPresenter's copy for testing (that copy is ProPresenter's licence, so never in a release).
 
 Figtree is licensed under the SIL Open Font License 1.1.
+
+## License
+
+Apache License 2.0 (see `LICENSE` and `NOTICE`). The bundled Figtree font is under the SIL Open Font License 1.1 (`Sources/CueDesign/Resources/OFL.txt`). The Churchfront name and logo are trademarks of Churchfront LLC and aren't covered by the license.
